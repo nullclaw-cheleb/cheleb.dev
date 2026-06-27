@@ -16,4 +16,5 @@ lazy val root = project
 
 //    libraryDependencies += "org.scala-js" %% "scalajs-dom" % "2.8.1", // sbt 2.x
      libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "2.8.1", // sbt 1.x
+     libraryDependencies += "dev.cheleb" %%% "threesjs" % "0.1.0",
   )
