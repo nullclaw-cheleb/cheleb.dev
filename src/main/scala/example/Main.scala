@@ -1,7 +1,7 @@
 package example
 
 import org.scalajs.dom
-import threesjs._
+import THREE.*
 
 @main
 def helloWorld(): Unit = {
@@ -12,8 +12,8 @@ def helloWorld(): Unit = {
   canvas.style.display = "block"
   dom.document.body.appendChild(canvas)
 
-  val renderer = WebGLRenderer()
-  renderer.setCanvas(canvas)
+  val renderer = WebGLRenderer(canvas)
+
   renderer.setSize(dom.window.innerWidth.toDouble, dom.window.innerHeight.toDouble)
 
   val scene = Scene()
@@ -26,11 +26,13 @@ def helloWorld(): Unit = {
   val cube = Mesh(geometry, material)
   scene.add(cube)
 
-  def animate(): Unit = {
-    dom.window.requestAnimationFrame(animate _)
+  def animate: () => Unit = () => {
+
     cube.rotation.x += 0.01
     cube.rotation.y += 0.01
     renderer.render(scene, camera)
+
+    renderer.setAnimationLoop(animate)
   }
 
   animate()
@@ -39,10 +41,3 @@ def helloWorld(): Unit = {
 import org.scalajs.dom
 
 
-@main
-def helloWorld(): Unit =
-  dom.document.querySelector("#app").innerHTML = s"""
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  """

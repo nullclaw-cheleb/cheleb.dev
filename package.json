@@ -10,7 +10,11 @@
   },
   "license": "MIT",
   "dependencies": {
+    "three": "0.184.0"
+  },
+  "devDependencies": {
     "@scala-js/vite-plugin-scalajs": "^1.1.0",
+    "patch-package": "^8.0.1",
     "vite": "^8.0.0"
   }
 }
